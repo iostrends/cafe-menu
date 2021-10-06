@@ -9,69 +9,106 @@ import UIKit
 
 class MenuListTableViewController: UITableViewController {
 
-    
     let teas = [
-        "Black Tea",
+        "Earl Grey",
+        "Orange Blossom",
         "Green Tea",
-        "Oolong Tea"
+        "Peppermint Tea",
+        "Orange Hibiscus",
+        "Darjeeling"
     ]
     
     let coffees = [
         "Espresso",
         "Macchiato",
         "Latte",
-        "Black Coffee"
+        "Cappuccino",
+        "Black Coffee",
+        "Americano"
     ]
     
+    let pastriesAndDesserts = [
+        "Tirmaisu",
+        "Pineapple Cheescake",
+        "Creme Carmel",
+        "Lemon Meringue Pie"
+    ]
+    
+    let sandwiches = [
+        "Chicken Salad Croissant",
+        "Turkey BLT",
+        "Ham Sandwhich"
+    ]
+    
+    let beverages = [
+        "Orange Juice",
+        "Iced Tea",
+        "Lemonade"
+    ]
+    
+    let cafeSides = [
+        "French Fries",
+        "Tortilla Chips with Fresh Salsa",
+        "Fresh Fruit Salad"
+    ]
+    
+    var allMenu: [[String]] = [[]]
+    var pickerSelection: String?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        allMenu = [teas, coffees, pastriesAndDesserts, sandwiches, beverages, cafeSides]
     }
 
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.section == 0 {
-            print(teas[indexPath.row])
-        }
-        else if indexPath.section == 1 {
-            print(coffees[indexPath.row])
-        }
-        
+        print(allMenu[indexPath.section][indexPath.row])
     }
     
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        
+        if pickerSelection == "All" {
+           return allMenu.count
+        }
+        
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if section == 0 {
-            return "Tea"
-        }
-        else if section == 1 {
-            return "Coffee"
+        if pickerSelection == "All" {
+            if section == 0 {
+                return "Teas"
+            }
+            else if section == 1 {
+                return "Coffees"
+            }
+            else if section == 2 {
+                return "Pastries and Desserts"
+            }
+            else if section == 3 {
+                return "Sandwiches"
+            }
+            else if section == 4 {
+                return "Beverages"
+            }
+            else if section == 5 {
+                return "Cafe Sides"
+            }
         }
         
-        return nil
+        return pickerSelection
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0 {
-            return teas.count
-        }
-        else if section == 1 {
-            return coffees.count
-        }
-        
-        return 1
+        return allMenu[section].count
     }
 
     
@@ -81,12 +118,7 @@ class MenuListTableViewController: UITableViewController {
         
         var content = cell.defaultContentConfiguration()
 
-        if indexPath.section == 0 {
-            content.text = teas[indexPath.row]
-        }
-        else if indexPath.section == 1 {
-            content.text = coffees[indexPath.row]
-        }
+        content.text = allMenu[indexPath.section][indexPath.row]
         
         cell.contentConfiguration = content
         
