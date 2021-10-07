@@ -83,7 +83,9 @@ class MenuListTableViewController: UITableViewController {
             detailVC?.title = allMenu[pickerSelection!.menuSectionVal - 1][indexPath.row]
         }
         
-        
+        let customVC = CustomModalViewController()
+        customVC.modalPresentationStyle = .overCurrentContext
+        self.present(customVC, animated: false)
     }
     
     
