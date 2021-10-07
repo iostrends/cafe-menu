@@ -8,8 +8,7 @@
 import UIKit
 
 protocol SectionsToMenuVC {
-    func passSelectedRowValue(rowValue: String)
-    
+    func passSelectedPickerRow(pickerRow: (menuSectionStr: String, menuSectionVal: Int))
 }
 
 
@@ -39,7 +38,7 @@ class SectionsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     // MARK: UIPickerViewDelegate methods
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        sectionsToMenu?.passSelectedRowValue(rowValue: sections[row])
+        sectionsToMenu!.passSelectedPickerRow(pickerRow:(sections[row], row))
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

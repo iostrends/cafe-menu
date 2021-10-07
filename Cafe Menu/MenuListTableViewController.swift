@@ -19,12 +19,13 @@ class MenuListTableViewController: UITableViewController {
     ]
     
     let coffees = [
-        "Espresso",
-        "Macchiato",
-        "Latte",
-        "Cappuccino",
+        "Americano",
         "Black Coffee",
-        "Americano"
+        "Caffè mocha",
+        "Cappuccino",
+        "Espresso",
+        "Latte",
+        "Macchiato"
     ]
     
     let pastriesAndDesserts = [
@@ -53,19 +54,36 @@ class MenuListTableViewController: UITableViewController {
     ]
     
     var allMenu: [[String]] = [[]]
-    var pickerSelection: String?
-
+    var pickerSelection: (menuSectionStr: String, menuSectionVal: Int)?
+    
+    var detailVC: DetailViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         allMenu = [teas, coffees, pastriesAndDesserts, sandwiches, beverages, cafeSides]
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navController = segue.destination as! UINavigationController
+        detailVC = (navController.viewControllers.first as? DetailViewController)!
+
+    }
 
     
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(allMenu[indexPath.section][indexPath.row])
+        
+        if pickerSelection!.menuSectionStr == "All" {
+            print(allMenu[indexPath.section][indexPath.row])
+            detailVC?.title = allMenu[indexPath.section][indexPath.row]
+        }
+        else {
+            print(allMenu[pickerSelection!.menuSectionVal - 1][indexPath.row])
+            detailVC?.title = allMenu[pickerSelection!.menuSectionVal - 1][indexPath.row]
+        }
+        
+        
     }
     
     
@@ -73,7 +91,7 @@ class MenuListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        if pickerSelection == "All" {
+        if pickerSelection!.menuSectionStr == "All" {
            return allMenu.count
         }
         
@@ -82,7 +100,7 @@ class MenuListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if pickerSelection == "All" {
+        if pickerSelection!.menuSectionStr == "All" {
             if section == 0 {
                 return "Teas"
             }
@@ -103,12 +121,19 @@ class MenuListTableViewController: UITableViewController {
             }
         }
         
-        return pickerSelection
+        return pickerSelection!.menuSectionStr
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allMenu[section].count
+
+        if pickerSelection!.menuSectionStr == "All" {
+            return allMenu[section].count
+        }
+        else {
+            return allMenu[pickerSelection!.menuSectionVal - 1].count
+        }
+        
     }
 
     
@@ -118,8 +143,13 @@ class MenuListTableViewController: UITableViewController {
         
         var content = cell.defaultContentConfiguration()
 
-        content.text = allMenu[indexPath.section][indexPath.row]
-        
+        if pickerSelection?.menuSectionStr == "All" {
+            content.text = allMenu[indexPath.section][indexPath.row]
+        }
+        else {
+            content.text = allMenu[pickerSelection!.menuSectionVal - 1][indexPath.row]
+        }
+
         cell.contentConfiguration = content
         
         return cell

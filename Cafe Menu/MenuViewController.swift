@@ -14,6 +14,7 @@ class MenuViewController: UIViewController, SectionsToMenuVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Cafe Menu"
         
     }
     
@@ -26,7 +27,7 @@ class MenuViewController: UIViewController, SectionsToMenuVC {
         
         if segue.identifier == "ToMenuList" {
             menuListTableViewController = segue.destination as? MenuListTableViewController
-            menuListTableViewController!.pickerSelection = "All"
+            menuListTableViewController!.pickerSelection = (menuSectionStr: "All", menuSectionVal: 0)
         }
         
     }
@@ -35,8 +36,8 @@ class MenuViewController: UIViewController, SectionsToMenuVC {
 
 extension MenuViewController {
         
-    func passSelectedRowValue(rowValue: String) {
-        menuListTableViewController!.pickerSelection = rowValue
+    func passSelectedPickerRow(pickerRow: (menuSectionStr: String, menuSectionVal: Int)) {
+        menuListTableViewController!.pickerSelection = pickerRow
         menuListTableViewController!.tableView.reloadData()
     }
     
