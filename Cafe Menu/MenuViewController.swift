@@ -15,6 +15,7 @@ class MenuViewController: UIViewController, SectionsToMenuVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Cafe Menu"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
     }
     

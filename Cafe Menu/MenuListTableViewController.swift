@@ -53,7 +53,8 @@ class MenuListTableViewController: UITableViewController {
         "Fresh Fruit Salad"
     ]
     
-    var allMenu: [[String]] = [[]]
+    var allMenuItems: [[String]] = [[]]
+    var allMenuItemImageNames: [[String]] = [[]]
     var pickerSelection: (menuSectionStr: String, menuSectionVal: Int)?
     
     var detailVC: DetailViewController?
@@ -61,7 +62,7 @@ class MenuListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        allMenu = [teas, coffees, pastriesAndDesserts, sandwiches, beverages, cafeSides]
+        allMenuItems = [teas, coffees, pastriesAndDesserts, sandwiches, beverages, cafeSides]
     }
     
     
@@ -75,12 +76,12 @@ class MenuListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if pickerSelection!.menuSectionStr == "All" {
-            print(allMenu[indexPath.section][indexPath.row])
-            detailVC?.title = allMenu[indexPath.section][indexPath.row]
+            print(allMenuItems[indexPath.section][indexPath.row])
+            detailVC?.title = allMenuItems[indexPath.section][indexPath.row]
         }
         else {
-            print(allMenu[pickerSelection!.menuSectionVal - 1][indexPath.row])
-            detailVC?.title = allMenu[pickerSelection!.menuSectionVal - 1][indexPath.row]
+            print(allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row])
+            detailVC?.title = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row]
         }
         
         let customVC = CustomModalViewController()
@@ -94,7 +95,7 @@ class MenuListTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         if pickerSelection!.menuSectionStr == "All" {
-           return allMenu.count
+           return allMenuItems.count
         }
         
         return 1
@@ -104,22 +105,22 @@ class MenuListTableViewController: UITableViewController {
         
         if pickerSelection!.menuSectionStr == "All" {
             if section == 0 {
-                return "Teas"
+                return "Tea Collection"
             }
             else if section == 1 {
-                return "Coffees"
+                return "Coffee Collection"
             }
             else if section == 2 {
-                return "Pastries and Desserts"
+                return "Pastrie and Dessert Collection"
             }
             else if section == 3 {
-                return "Sandwiches"
+                return "Sandwich Collection"
             }
             else if section == 4 {
-                return "Beverages"
+                return "Beverage Collection"
             }
             else if section == 5 {
-                return "Cafe Sides"
+                return "Cafe Sides Collection"
             }
         }
         
@@ -130,29 +131,54 @@ class MenuListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if pickerSelection!.menuSectionStr == "All" {
-            return allMenu[section].count
+            return allMenuItems[section].count
         }
         else {
-            return allMenu[pickerSelection!.menuSectionVal - 1].count
+            return allMenuItems[pickerSelection!.menuSectionVal - 1].count
         }
         
     }
 
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 35
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+        header.textLabel?.frame = header.bounds
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let verticalPadding: CGFloat = 5
+
+        let maskLayer = CALayer()
+        maskLayer.cornerRadius = 10
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 15, dy: verticalPadding/2)
+        cell.layer.mask = maskLayer
+        tableView.backgroundColor = UIColor.systemGroupedBackground
+    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        var content = cell.defaultContentConfiguration()
-
+                
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "menuItemCell", for: indexPath) as? MenuItemTableViewCell else {
+            fatalError("Unable to dequeue ReminderCell")
+        }
+    
         if pickerSelection?.menuSectionStr == "All" {
-            content.text = allMenu[indexPath.section][indexPath.row]
+            cell.menuItemLabel.text = allMenuItems[indexPath.section][indexPath.row]
+            cell.menuItemImage.image = UIImage(named: "cup-earl-grey-tea")
+            cell.menuItemPriceLabel.text = "$ 7"
         }
         else {
-            content.text = allMenu[pickerSelection!.menuSectionVal - 1][indexPath.row]
+            cell.menuItemLabel.text = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row]
+            cell.menuItemImage.image = UIImage(named: "cup-earl-grey-tea")
+            cell.menuItemPriceLabel.text = "$ 7"
         }
-
-        cell.contentConfiguration = content
         
         return cell
     }
