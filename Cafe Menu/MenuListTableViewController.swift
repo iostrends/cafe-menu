@@ -10,51 +10,49 @@ import UIKit
 class MenuListTableViewController: UITableViewController {
 
     let teas = [
-        "Earl Grey",
-        "Orange Blossom",
-        "Green Tea",
-        "Peppermint Tea",
-        "Orange Hibiscus",
-        "Darjeeling"
+        (menuItemStr: "Earl Grey Tea", menuItemImage: UIImage(named: "cup-earl-grey-tea"), menuItemPrice: "$ 2.99"),
+        (menuItemStr: "Green Tea", menuItemImage: UIImage(named: "green-tea"), menuItemPrice: "$ 3.99"),
+        (menuItemStr: "Hibiscus Tea", menuItemImage: UIImage(named: "hibiscus-tea"), menuItemPrice: "$ 4.99"),
+        (menuItemStr: "Orange Blossom Tea", menuItemImage: UIImage(named: "orange-blossom-tea"), menuItemPrice: "$ 5.99"),
+        (menuItemStr: "Peppermint Tea", menuItemImage: UIImage(named: "peppermint-tea"), menuItemPrice: "$ 3.99")
     ]
     
     let coffees = [
-        "Americano",
-        "Black Coffee",
-        "Caffè mocha",
-        "Cappuccino",
-        "Espresso",
-        "Latte",
-        "Macchiato"
+        (menuItemStr: "Americano", menuItemImage: UIImage(named: "americano-coffee"), menuItemPrice: "$ 2.99"),
+        (menuItemStr: "Black Coffee", menuItemImage: UIImage(named: "black-coffee"), menuItemPrice: "$ 1.99"),
+        (menuItemStr: "Caffè Peppermint Mocha", menuItemImage: UIImage(named: "peppermint-mocha"), menuItemPrice: "$ 7.99"),
+        (menuItemStr: "Cappuccino", menuItemImage: UIImage(named: "cappuccino"), menuItemPrice: "$ 4.99"),
+        (menuItemStr: "Caramel Macchiato", menuItemImage: UIImage(named: "caramel-macchiato"), menuItemPrice: "$ 9.99"),
+        (menuItemStr: "Espresso", menuItemImage: UIImage(named: "espresso"), menuItemPrice: "$ 5.99"),
+        (menuItemStr: "Latte", menuItemImage: UIImage(named: "latte"), menuItemPrice: "$ 6.99")
     ]
     
     let pastriesAndDesserts = [
-        "Tirmaisu",
-        "Pineapple Cheescake",
-        "Creme Carmel",
-        "Lemon Meringue Pie"
+        (menuItemStr: "Cheesecake", menuItemImage: UIImage(named: "cheesecake"), menuItemPrice: "$ 7.99"),
+        (menuItemStr: "Creme Caramel", menuItemImage: UIImage(named: "creme-caramel"), menuItemPrice: "$ 9.99"),
+        (menuItemStr: "Lemon Meringue Pie", menuItemImage: UIImage(named: "lemon-meringue"), menuItemPrice: "$ 8.99"),
+        (menuItemStr: "Tiramisu", menuItemImage: UIImage(named: "tiramisu"), menuItemPrice: "$ 6.99")
     ]
     
     let sandwiches = [
-        "Chicken Salad Croissant",
-        "Turkey BLT",
-        "Ham Sandwhich"
+        (menuItemStr: "Chicken Salad Croissant", menuItemImage: UIImage(named: "chicken-salad-croissant-sandwich"), menuItemPrice: "$ 7.99"),
+        (menuItemStr: "Ham Sandwich", menuItemImage: UIImage(named: "ham-sandwich"), menuItemPrice: "$ 4.99"),
+        (menuItemStr: "Turkey BLT", menuItemImage: UIImage(named: "turkey-blt"), menuItemPrice: "$ 5.99")
     ]
     
     let beverages = [
-        "Orange Juice",
-        "Iced Tea",
-        "Lemonade"
+        (menuItemStr: "Iced Tea", menuItemImage: UIImage(named: "iced-tea"), menuItemPrice: "$ 4.50"),
+        (menuItemStr: "Lemonade", menuItemImage: UIImage(named: "lemonade"), menuItemPrice: "$ 2.99"),
+        (menuItemStr: "Orange Juice", menuItemImage: UIImage(named: "orange-juice"), menuItemPrice: "$ 3.99")
     ]
     
     let cafeSides = [
-        "French Fries",
-        "Tortilla Chips with Fresh Salsa",
-        "Fresh Fruit Salad"
+        (menuItemStr: "French Fries", menuItemImage: UIImage(named: "french-fries"), menuItemPrice: "$ 3.99"),
+        (menuItemStr: "Fresh Fruit Salad", menuItemImage: UIImage(named: "fruit-salad"), menuItemPrice: "$ 5.25"),
+        (menuItemStr: "Tortilla Chips with Fresh Salsa", menuItemImage: UIImage(named: "tortilla-chips-with-salsa"), menuItemPrice: "$ 4.50")
     ]
     
-    var allMenuItems: [[String]] = [[]]
-    var allMenuItemImageNames: [[String]] = [[]]
+    var allMenuItems: [[(menuItemStr: String, menuItemImage: UIImage?, menuItemPrice: String)]] = [[]]
     var pickerSelection: (menuSectionStr: String, menuSectionVal: Int)?
     
     var detailVC: DetailViewController?
@@ -77,11 +75,11 @@ class MenuListTableViewController: UITableViewController {
         
         if pickerSelection!.menuSectionStr == "All" {
             print(allMenuItems[indexPath.section][indexPath.row])
-            detailVC?.title = allMenuItems[indexPath.section][indexPath.row]
+            detailVC?.title = allMenuItems[indexPath.section][indexPath.row].menuItemStr
         }
         else {
             print(allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row])
-            detailVC?.title = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row]
+            detailVC?.title = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemStr
         }
         
         let customVC = CustomModalViewController()
@@ -170,14 +168,14 @@ class MenuListTableViewController: UITableViewController {
         }
     
         if pickerSelection?.menuSectionStr == "All" {
-            cell.menuItemLabel.text = allMenuItems[indexPath.section][indexPath.row]
-            cell.menuItemImage.image = UIImage(named: "cup-earl-grey-tea")
-            cell.menuItemPriceLabel.text = "$ 7"
+            cell.menuItemLabel.text = allMenuItems[indexPath.section][indexPath.row].menuItemStr
+            cell.menuItemImage.image = allMenuItems[indexPath.section][indexPath.row].menuItemImage
+            cell.menuItemPriceLabel.text = allMenuItems[indexPath.section][indexPath.row].menuItemPrice
         }
         else {
-            cell.menuItemLabel.text = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row]
-            cell.menuItemImage.image = UIImage(named: "cup-earl-grey-tea")
-            cell.menuItemPriceLabel.text = "$ 7"
+            cell.menuItemLabel.text = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemStr
+            cell.menuItemImage.image = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemImage
+            cell.menuItemPriceLabel.text = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemPrice
         }
         
         return cell

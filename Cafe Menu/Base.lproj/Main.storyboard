@@ -115,9 +115,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S8-al-WAr">
-                                            <rect key="frame" x="333" y="25" width="41.5" height="50"/>
+                                            <rect key="frame" x="319.5" y="25" width="55" height="50"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="Fcc-HB-kWn"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="Fcc-HB-kWn"/>
                                                 <constraint firstAttribute="height" constant="50" id="i2a-AJ-OGc"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -133,7 +133,7 @@
                                         <constraint firstAttribute="trailing" secondItem="TrK-ei-pB8" secondAttribute="trailing" constant="65" id="VQU-mg-rN0"/>
                                         <constraint firstItem="6S8-al-WAr" firstAttribute="centerY" secondItem="GOU-bq-sJN" secondAttribute="centerY" id="VTL-AV-QTP"/>
                                         <constraint firstAttribute="bottom" secondItem="gBQ-97-E2D" secondAttribute="bottom" constant="5" id="VYN-Sf-dGn"/>
-                                        <constraint firstItem="6S8-al-WAr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TrK-ei-pB8" secondAttribute="trailing" constant="13.5" id="WwH-sm-Vgp"/>
+                                        <constraint firstItem="6S8-al-WAr" firstAttribute="leading" secondItem="TrK-ei-pB8" secondAttribute="trailing" id="aNd-WO-ATn"/>
                                         <constraint firstItem="gBQ-97-E2D" firstAttribute="leading" secondItem="GOU-bq-sJN" secondAttribute="leading" constant="18" id="hnN-LY-nUp"/>
                                         <constraint firstAttribute="bottom" secondItem="TrK-ei-pB8" secondAttribute="bottom" constant="25" id="kdB-OO-dqo"/>
                                         <constraint firstItem="6S8-al-WAr" firstAttribute="top" secondItem="GOU-bq-sJN" secondAttribute="top" constant="25" id="ljr-9e-7i4"/>
