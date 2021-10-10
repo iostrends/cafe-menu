@@ -2,36 +2,36 @@
 //  CustomModalViewController.swift
 //  HalfScreenPresentation
 //
-//  Created by Hafiz on 06/06/2021.
+//  Created by Hafiz on 06/06/2021. (Source: https://github.com/xmhafiz/CustomModalVC)
 //
 
 import UIKit
 
 class CustomModalViewController: UIViewController {
     // define lazy views
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Get Started"
-        label.font = .boldSystemFont(ofSize: 20)
-        return label
-    }()
-    
-    lazy var notesLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem fringilla ut morbi tincidunt augue interdum. \n\nUt morbi tincidunt augue interdum velit euismod in pellentesque massa. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a. Eget nullam non nisi est sit amet. Odio pellentesque diam volutpat commodo. Id eu nisl nunc mi ipsum faucibus vitae.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem fringilla ut morbi tincidunt augue interdum. Ut morbi tincidunt augue interdum velit euismod in pellentesque massa."
-        label.font = .systemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    lazy var contentStackView: UIStackView = {
-        let spacer = UIView()
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, notesLabel, spacer])
-        stackView.axis = .vertical
-        stackView.spacing = 12.0
-        return stackView
-    }()
+//    lazy var titleLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Get Started"
+//        label.font = .boldSystemFont(ofSize: 20)
+//        return label
+//    }()
+//
+//    lazy var notesLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem fringilla ut morbi tincidunt augue interdum. \n\nUt morbi tincidunt augue interdum velit euismod in pellentesque massa. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a. Eget nullam non nisi est sit amet. Odio pellentesque diam volutpat commodo. Id eu nisl nunc mi ipsum faucibus vitae.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem fringilla ut morbi tincidunt augue interdum. Ut morbi tincidunt augue interdum velit euismod in pellentesque massa."
+//        label.font = .systemFont(ofSize: 16)
+//        label.textColor = .darkGray
+//        label.numberOfLines = 0
+//        return label
+//    }()
+//
+//    lazy var contentStackView: UIStackView = {
+//        let spacer = UIView()
+//        let stackView = UIStackView(arrangedSubviews: [titleLabel, notesLabel, spacer])
+//        stackView.axis = .vertical
+//        stackView.spacing = 12.0
+//        return stackView
+//    }()
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -50,11 +50,11 @@ class CustomModalViewController: UIViewController {
     }()
     
     // Constants
-    let defaultHeight: CGFloat = 300
-    let dismissibleHeight: CGFloat = 200
-    let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
+    let defaultHeight: CGFloat = 400
+    let dismissibleHeight: CGFloat = 300
+    let maximumContainerHeight: CGFloat = 400 //UIScreen.main.bounds.height - 64
     // keep current new height, initial is default height
-    var currentContainerHeight: CGFloat = 300
+    var currentContainerHeight: CGFloat = 400
     
     // Dynamic container constraint
     var containerViewHeightConstraint: NSLayoutConstraint?
@@ -79,6 +79,7 @@ class CustomModalViewController: UIViewController {
         super.viewDidAppear(animated)
         animateShowDimmedView()
         animatePresentContainer()
+        containerViewHeightConstraint?.constant = 400
     }
     
     func setupView() {
@@ -92,8 +93,8 @@ class CustomModalViewController: UIViewController {
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        containerView.addSubview(contentStackView)
-        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+//        containerView.addSubview(contentStackView)
+//        contentStackView.translatesAutoresizingMaskIntoConstraints = false
         
         // Set static constraints
         NSLayoutConstraint.activate([
@@ -106,10 +107,10 @@ class CustomModalViewController: UIViewController {
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             // content stackView
-            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
-            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
-            contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
+//            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
+//            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+//            contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+//            contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
         ])
         
         // Set dynamic constraints
