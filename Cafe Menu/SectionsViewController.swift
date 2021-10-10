@@ -21,7 +21,7 @@ class SectionsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         "All",
         "Tea Collection",
         "Coffee Collection",
-        "Pastrie and Dessert Collection",
+        "Pastry and Dessert Collection",
         "Sandwich Collection",
         "Beverage Collection",
         "Cafe Sides Collection"

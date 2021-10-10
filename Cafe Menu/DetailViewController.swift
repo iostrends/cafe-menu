@@ -7,19 +7,37 @@
 
 import UIKit
 
+protocol DetailToMenuVC {
+    func addToOrderList(item: MenuItem)
+}
+
 class DetailViewController: CustomModalViewController {
 
-    let menuItemTitle = UILabel()
-    let menuItemPrice = UILabel()
+    var detailToMenu: DetailToMenuVC?
     
-    let menuItemImageView = UIImageView()
-    let menuItemDescription = UITextView()
+    var theMenuItem: MenuItem?
     
-    let addToOrderButton = UIButton()
-    let closeImageButton = UIImageView()
+    private let menuItemTitle = UILabel()
+    private let menuItemPrice = UILabel()
+    
+    private let menuItemImageView = UIImageView()
+    private let menuItemDescription = UITextView()
+    
+    private let addToOrderButton = UIButton()
+    private let closeImageButton = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        menuItemTitle.text = theMenuItem!.menuItemStr
+        menuItemPrice.text = theMenuItem!.menuItemPriceStr
+        
+        menuItemImageView.image = theMenuItem!.menuItemImg
+        menuItemDescription.text = theMenuItem!.menuItemDescriptionStr
     }
     
     override func setupView() {
@@ -154,6 +172,8 @@ class DetailViewController: CustomModalViewController {
     @objc
     func addMenuItemToOrder() {
         print("addToOrder")
+        print(theMenuItem!.menuItemStr)
+        detailToMenu!.addToOrderList(item: theMenuItem!)
     }
     
     

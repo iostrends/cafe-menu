@@ -7,15 +7,21 @@
 
 import UIKit
 
-class MenuViewController: UIViewController, SectionsToMenuVC {
+class MenuViewController: UIViewController {
     
     var sectionsViewController: SectionsViewController?
     var menuListTableViewController: MenuListTableViewController?
+    var detailVC = DetailViewController()
+    
+    var orderList: [MenuItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Cafe Menu"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        tabBarController?.delegate = self
+        detailVC.detailToMenu = self
+//        title = "Cafe Menu"
+//        navigationController?.navigationBar.prefersLargeTitles = true
         
     }
     
@@ -29,17 +35,40 @@ class MenuViewController: UIViewController, SectionsToMenuVC {
         if segue.identifier == "ToMenuList" {
             menuListTableViewController = segue.destination as? MenuListTableViewController
             menuListTableViewController!.pickerSelection = (menuSectionStr: "All", menuSectionVal: 0)
+            menuListTableViewController!.detailVC = detailVC
         }
-        
     }
         
 }
 
-extension MenuViewController {
+extension MenuViewController: SectionsToMenuVC {
         
     func passSelectedPickerRow(pickerRow: (menuSectionStr: String, menuSectionVal: Int)) {
         menuListTableViewController!.pickerSelection = pickerRow
         menuListTableViewController!.tableView.reloadData()
+    }
+    
+}
+
+extension MenuViewController: DetailToMenuVC, UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("didSelect TabBar")
+        
+        if viewController.isKind(of: OrderListTableViewController.self) {
+            print("switching to orderListTblVC")
+            
+            guard let destVC = viewController as? OrderListTableViewController else {
+                fatalError("Unable to switch to OrderListTableViewController")
+            }
+            
+            destVC.orderList = orderList
+            destVC.tableView.reloadData()
+        }
+    }
+    
+    func addToOrderList(item: MenuItem) {
+        orderList.append(item)
     }
     
 }

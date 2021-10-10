@@ -20,4 +20,10 @@ class MenuItemTableViewCell: UITableViewCell {
         menuItemImage.layer.cornerRadius = 10
     }
     
+    func populateMenuItemCell(itemImg: UIImage, itemLabelStr: String, itemPriceStr: String) {
+        self.menuItemImage.image = itemImg
+        self.menuItemLabel.text = itemLabelStr
+        self.menuItemPriceLabel.text = itemPriceStr
+    }
+    
 }

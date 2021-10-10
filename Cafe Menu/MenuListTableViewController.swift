@@ -9,187 +9,58 @@ import UIKit
 
 class MenuListTableViewController: UITableViewController {
 
-    let teas = [
-        (
-            menuItemStr: "Earl Grey Tea",
-            menuItemImg: UIImage(named: "cup-earl-grey-tea"),
-            menuItemPriceStr: "$ 2.99",
-            menuItemDescriptionStr: "A strong black tea base with the added essence of bergamot, a citrus fruit with subtle lemon and floral lavender notes, creates this aromatically awesome tea flavor."
-        ),
-        (
-            menuItemStr: "Green Tea",
-            menuItemImg: UIImage(named: "green-tea"),
-            menuItemPriceStr: "$ 3.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Hibiscus Tea",
-            menuItemImg: UIImage(named: "hibiscus-tea"),
-            menuItemPriceStr: "$ 4.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Orange Blossom Tea",
-            menuItemImg: UIImage(named: "orange-blossom-tea"),
-            menuItemPriceStr: "$ 5.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Peppermint Tea",
-            menuItemImg: UIImage(named: "peppermint-tea"),
-            menuItemPriceStr: "$ 3.99",
-            menuItemDescriptionStr: ""
-        )
+    let teaCollection = [
+        MenuItem(itemStr: "Earl Grey Tea", priceStr: "$ 2.50", itemImg: UIImage(named: "cup-earl-grey-tea")!, desciptionStr: "A strong black tea base with the added essence of bergamot, a citrus fruit with subtle lemon and floral lavender notes, creates this aromatically awesome tea flavor."),
+        MenuItem(itemStr: "Green Tea", priceStr: "$ 3.75", itemImg: UIImage(named: "green-tea")!, desciptionStr: ""),
+        MenuItem(itemStr: "Hibiscus Tea", priceStr: "$ 4.99", itemImg: UIImage(named: "hibiscus-tea")!, desciptionStr: ""),
+        MenuItem(itemStr: "Orange Blossom Tea", priceStr: "$ 5.25", itemImg: UIImage(named: "orange-blossom-tea")!, desciptionStr: ""),
+        MenuItem(itemStr: "Peppermint Tea", priceStr: "$ 3.99", itemImg: UIImage(named: "peppermint-tea")!, desciptionStr: "")
     ]
     
-    let coffees = [
-        (
-            menuItemStr: "Americano",
-            menuItemImg: UIImage(named: "americano-coffee"),
-            menuItemPriceStr: "$ 2.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Black Coffee",
-            menuItemImg: UIImage(named: "black-coffee"),
-            menuItemPriceStr: "$ 1.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Caffè Peppermint Mocha",
-            menuItemImg: UIImage(named: "peppermint-mocha"),
-            menuItemPriceStr: "$ 7.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Cappuccino",
-            menuItemImg: UIImage(named: "cappuccino"),
-            menuItemPriceStr: "$ 4.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Caramel Macchiato",
-            menuItemImg: UIImage(named: "caramel-macchiato"),
-            menuItemPriceStr: "$ 9.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Espresso",
-            menuItemImg: UIImage(named: "espresso"),
-            menuItemPriceStr: "$ 5.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Latte",
-            menuItemImg: UIImage(named: "latte"),
-            menuItemPriceStr: "$ 6.99",
-            menuItemDescriptionStr: ""
-        )
+    let coffeeCollection = [
+        MenuItem(itemStr: "Americano", priceStr: "$ 2.50", itemImg: UIImage(named: "americano-coffee")!, desciptionStr: ""),
+        MenuItem(itemStr: "Black Coffee", priceStr: "$ 1.99", itemImg: UIImage(named: "black-coffee")!, desciptionStr: ""),
+        MenuItem(itemStr: "Caffè Peppermint Mocha", priceStr: "$ 7.50", itemImg: UIImage(named: "peppermint-mocha")!, desciptionStr: ""),
+        MenuItem(itemStr: "Cappuccino", priceStr: "$ 4.75", itemImg: UIImage(named: "cappuccino")!, desciptionStr: ""),
+        MenuItem(itemStr: "Caramel Macchiato", priceStr: "$ 8.25", itemImg: UIImage(named: "caramel-macchiato")!, desciptionStr: ""),
+        MenuItem(itemStr: "Espresso", priceStr: "$ 5.99", itemImg: UIImage(named: "espresso")!, desciptionStr: ""),
+        MenuItem(itemStr: "Latte", priceStr: "$ 6.25", itemImg: UIImage(named: "latte")!, desciptionStr: "")
     ]
     
-    let pastriesAndDesserts = [
-        (
-            menuItemStr: "Cheesecake",
-            menuItemImg: UIImage(named: "cheesecake"),
-            menuItemPriceStr: "$ 7.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Creme Caramel",
-            menuItemImg: UIImage(named: "creme-caramel"),
-            menuItemPriceStr: "$ 9.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Lemon Meringue Pie",
-            menuItemImg: UIImage(named: "lemon-meringue"),
-            menuItemPriceStr: "$ 8.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Tiramisu",
-            menuItemImg: UIImage(named: "tiramisu"),
-            menuItemPriceStr: "$ 6.99",
-            menuItemDescriptionStr: ""
-        )
+    let pastryAndDessertCollection = [
+        MenuItem(itemStr: "Cheesecake", priceStr: "$ 7.75", itemImg: UIImage(named: "cheesecake")!, desciptionStr: ""),
+        MenuItem(itemStr: "Creme Caramel", priceStr: "$ 9.50", itemImg: UIImage(named: "creme-caramel")!, desciptionStr: ""),
+        MenuItem(itemStr: "Lemon Meringue Pie", priceStr: "$ 8.25", itemImg: UIImage(named: "lemon-meringue")!, desciptionStr: ""),
+        MenuItem(itemStr: "Tiramisu", priceStr: "$ 6.25", itemImg: UIImage(named: "tiramisu")!, desciptionStr: "")
+    ]
+    let sandwichCollection = [
+        MenuItem(itemStr: "Chicken Salad Croissant", priceStr: "$ 7.25", itemImg: UIImage(named: "chicken-salad-croissant-sandwich")!, desciptionStr: ""),
+        MenuItem(itemStr: "Ham Sandwich", priceStr: "$ 4.50", itemImg: UIImage(named: "ham-sandwich")!, desciptionStr: ""),
+        MenuItem(itemStr: "Turkey BLT", priceStr: "$ 5.99", itemImg: UIImage(named: "turkey-blt")!, desciptionStr: "")
     ]
     
-    let sandwiches = [
-        (
-            menuItemStr: "Chicken Salad Croissant",
-            menuItemImg: UIImage(named: "chicken-salad-croissant-sandwich"),
-            menuItemPriceStr: "$ 7.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Ham Sandwich",
-            menuItemImg: UIImage(named: "ham-sandwich"),
-            menuItemPriceStr: "$ 4.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Turkey BLT",
-            menuItemImg: UIImage(named: "turkey-blt"),
-            menuItemPriceStr: "$ 5.99",
-            menuItemDescriptionStr: ""
-        )
+    let beverageCollection = [
+        MenuItem(itemStr: "Iced Tea", priceStr: "$ 4.50", itemImg: UIImage(named: "iced-tea")!, desciptionStr: ""),
+        MenuItem(itemStr: "Lemonade", priceStr: "$ 2.99", itemImg: UIImage(named: "lemonade")!, desciptionStr: ""),
+        MenuItem(itemStr: "Orange Juice", priceStr: "$ 3.25", itemImg: UIImage(named: "orange-juice")!, desciptionStr: "")
     ]
     
-    let beverages = [
-        (
-            menuItemStr: "Iced Tea",
-            menuItemImg: UIImage(named: "iced-tea"),
-            menuItemPriceStr: "$ 4.50",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Lemonade",
-            menuItemImg: UIImage(named: "lemonade"),
-            menuItemPriceStr: "$ 2.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Orange Juice",
-            menuItemImg: UIImage(named: "orange-juice"),
-            menuItemPriceStr: "$ 3.99",
-            menuItemDescriptionStr: ""
-        )
+    let cafeSidesCollection = [
+        MenuItem(itemStr: "French Fries", priceStr: "$ 3.99", itemImg: UIImage(named: "french-fries")!, desciptionStr: ""),
+        MenuItem(itemStr: "Fresh Fruit Salad", priceStr: "$ 5.25", itemImg: UIImage(named: "fruit-salad")!, desciptionStr: ""),
+        MenuItem(itemStr: "Tortilla Chips with Fresh Salsa", priceStr: "$ 4.50", itemImg: UIImage(named: "tortilla-chips-with-salsa")!, desciptionStr: "")
     ]
     
-    let cafeSides = [
-        (
-            menuItemStr: "French Fries",
-            menuItemImg: UIImage(named: "french-fries"),
-            menuItemPriceStr: "$ 3.99",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Fresh Fruit Salad",
-            menuItemImg: UIImage(named: "fruit-salad"),
-            menuItemPriceStr: "$ 5.25",
-            menuItemDescriptionStr: ""
-        ),
-        (
-            menuItemStr: "Tortilla Chips with Fresh Salsa",
-            menuItemImg: UIImage(named: "tortilla-chips-with-salsa"),
-            menuItemPriceStr: "$ 4.50",
-            menuItemDescriptionStr: ""
-        )
-    ]
-    
-    var allMenuItems: [[(menuItemStr: String,
-                         menuItemImg: UIImage?,
-                         menuItemPriceStr: String,
-                         menuItemDescriptionStr: String)]] = [[]]
+    var allMenuItems: [[MenuItem]] = [[]]
     
     var pickerSelection: (menuSectionStr: String, menuSectionVal: Int)?
     
-    var detailVC: DetailViewController = DetailViewController()
+    var detailVC: DetailViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        allMenuItems = [teas, coffees, pastriesAndDesserts, sandwiches, beverages, cafeSides]
+        allMenuItems = [teaCollection, coffeeCollection, pastryAndDessertCollection, sandwichCollection, beverageCollection, cafeSidesCollection]
     }
 
     
@@ -197,25 +68,15 @@ class MenuListTableViewController: UITableViewController {
         
         if pickerSelection!.menuSectionStr == "All" {
             print(allMenuItems[indexPath.section][indexPath.row])
-            
-            detailVC.menuItemTitle.text = allMenuItems[indexPath.section][indexPath.row].menuItemStr
-            detailVC.menuItemPrice.text = allMenuItems[indexPath.section][indexPath.row].menuItemPriceStr
-            
-            detailVC.menuItemImageView.image = allMenuItems[indexPath.section][indexPath.row].menuItemImg
-            detailVC.menuItemDescription.text = allMenuItems[indexPath.section][indexPath.row].menuItemDescriptionStr
+            detailVC!.theMenuItem = allMenuItems[indexPath.section][indexPath.row]
         }
         else {
             print(allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row])
-            
-            detailVC.menuItemTitle.text = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemStr
-            detailVC.menuItemPrice.text = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemPriceStr
-            
-            detailVC.menuItemImageView.image = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemImg
-            detailVC.menuItemDescription.text = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemDescriptionStr
+            detailVC!.theMenuItem = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row]
         }
         
-        detailVC.modalPresentationStyle = .overCurrentContext
-        self.present(detailVC, animated: false, completion: nil)
+        detailVC!.modalPresentationStyle = .overCurrentContext
+        self.present(detailVC!, animated: false, completion: nil)
     }
     
     
@@ -240,7 +101,7 @@ class MenuListTableViewController: UITableViewController {
                 return "Coffee Collection"
             }
             else if section == 2 {
-                return "Pastrie and Dessert Collection"
+                return "Pastry and Dessert Collection"
             }
             else if section == 3 {
                 return "Sandwich Collection"
@@ -295,18 +156,18 @@ class MenuListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "menuItemCell", for: indexPath) as? MenuItemTableViewCell else {
-            fatalError("Unable to dequeue ReminderCell")
+            fatalError("Unable to dequeue menuItemCell")
         }
     
         if pickerSelection?.menuSectionStr == "All" {
-            cell.menuItemLabel.text = allMenuItems[indexPath.section][indexPath.row].menuItemStr
-            cell.menuItemImage.image = allMenuItems[indexPath.section][indexPath.row].menuItemImg
-            cell.menuItemPriceLabel.text = allMenuItems[indexPath.section][indexPath.row].menuItemPriceStr
+            cell.populateMenuItemCell(itemImg: allMenuItems[indexPath.section][indexPath.row].menuItemImg,
+                                      itemLabelStr: allMenuItems[indexPath.section][indexPath.row].menuItemStr,
+                                      itemPriceStr: allMenuItems[indexPath.section][indexPath.row].menuItemPriceStr)
         }
         else {
-            cell.menuItemLabel.text = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemStr
-            cell.menuItemImage.image = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemImg
-            cell.menuItemPriceLabel.text = allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemPriceStr
+            cell.populateMenuItemCell(itemImg: allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemImg,
+                                      itemLabelStr: allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemStr,
+                                      itemPriceStr: allMenuItems[pickerSelection!.menuSectionVal - 1][indexPath.row].menuItemPriceStr)
         }
         
         return cell
