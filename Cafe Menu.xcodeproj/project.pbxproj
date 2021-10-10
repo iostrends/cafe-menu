@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D2350052712B9FA00EADB4F /* OrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2350042712B9FA00EADB4F /* OrderListTableViewController.swift */; };
 		5D2350072712D07000EADB4F /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2350062712D07000EADB4F /* MenuItem.swift */; };
+		5D23500C271372B900EADB4F /* MenuListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D23500B271372B900EADB4F /* MenuListDataSource.swift */; };
 		5D74005A270FC045002AAA87 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D740059270FC045002AAA87 /* MenuItemTableViewCell.swift */; };
 		5D9FA052270A433100229716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FA051270A433100229716 /* AppDelegate.swift */; };
 		5D9FA054270A433100229716 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FA053270A433100229716 /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		5D2350042712B9FA00EADB4F /* OrderListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableViewController.swift; sourceTree = "<group>"; };
 		5D2350062712D07000EADB4F /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		5D23500B271372B900EADB4F /* MenuListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListDataSource.swift; sourceTree = "<group>"; };
 		5D740059270FC045002AAA87 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		5D9FA04E270A433100229716 /* Cafe Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cafe Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D9FA051270A433100229716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D2350082713720000EADB4F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5D2350062712D07000EADB4F /* MenuItem.swift */,
+				5D23500B271372B900EADB4F /* MenuListDataSource.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5D2350092713720800EADB4F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D23500D2713807700EADB4F /* Main */,
+				5D23500F271380D600EADB4F /* Modal */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5D23500A2713722200EADB4F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D740059270FC045002AAA87 /* MenuItemTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5D23500D2713807700EADB4F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5D9FA055270A433100229716 /* MenuViewController.swift */,
+				5D9FA08B270A813300229716 /* SectionsViewController.swift */,
+				5D9FA089270A758F00229716 /* MenuListTableViewController.swift */,
+				5D235010271380E600EADB4F /* Secondary */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5D23500F271380D600EADB4F /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				5DA16B19270D4CF700FE2BDD /* DetailViewController.swift */,
+				5DDEF78C270ED663007EC037 /* CustomModalViewController.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		5D235010271380E600EADB4F /* Secondary */ = {
+			isa = PBXGroup;
+			children = (
+				5D2350042712B9FA00EADB4F /* OrderListTableViewController.swift */,
+			);
+			path = Secondary;
+			sourceTree = "<group>";
+		};
 		5D9FA045270A433100229716 = {
 			isa = PBXGroup;
 			children = (
@@ -72,14 +128,9 @@
 			children = (
 				5D9FA051270A433100229716 /* AppDelegate.swift */,
 				5D9FA053270A433100229716 /* SceneDelegate.swift */,
-				5D9FA055270A433100229716 /* MenuViewController.swift */,
-				5D9FA08B270A813300229716 /* SectionsViewController.swift */,
-				5D9FA089270A758F00229716 /* MenuListTableViewController.swift */,
-				5D740059270FC045002AAA87 /* MenuItemTableViewCell.swift */,
-				5DA16B19270D4CF700FE2BDD /* DetailViewController.swift */,
-				5D2350042712B9FA00EADB4F /* OrderListTableViewController.swift */,
-				5DDEF78C270ED663007EC037 /* CustomModalViewController.swift */,
-				5D2350062712D07000EADB4F /* MenuItem.swift */,
+				5D2350082713720000EADB4F /* Models */,
+				5D23500A2713722200EADB4F /* Views */,
+				5D2350092713720800EADB4F /* Controllers */,
 				5D9FA057270A433100229716 /* Main.storyboard */,
 				5D9FA05A270A433200229716 /* Assets.xcassets */,
 				5D9FA05C270A433200229716 /* LaunchScreen.storyboard */,
@@ -164,6 +215,7 @@
 				5D9FA08A270A758F00229716 /* MenuListTableViewController.swift in Sources */,
 				5D9FA052270A433100229716 /* AppDelegate.swift in Sources */,
 				5DA16B1A270D4CF700FE2BDD /* DetailViewController.swift in Sources */,
+				5D23500C271372B900EADB4F /* MenuListDataSource.swift in Sources */,
 				5D9FA054270A433100229716 /* SceneDelegate.swift in Sources */,
 				5D74005A270FC045002AAA87 /* MenuItemTableViewCell.swift in Sources */,
 				5D2350072712D07000EADB4F /* MenuItem.swift in Sources */,

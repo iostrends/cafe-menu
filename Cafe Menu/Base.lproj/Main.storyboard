@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Order List Table View Controller-->
         <scene sceneID="ya7-ei-ctq">
             <objects>
                 <tableViewController id="euW-5g-68L" customClass="OrderListTableViewController" customModule="Cafe_Menu" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,11 +79,11 @@
                             <outlet property="delegate" destination="euW-5g-68L" id="VIQ-3k-vcc"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" image="cup.and.saucer.fill" catalog="system" id="lhr-G2-wd6"/>
+                    <navigationItem key="navigationItem" id="pJY-BS-Edr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDz-qq-mvN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="722"/>
+            <point key="canvasLocation" x="1515.9420289855075" y="721.875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yBY-bC-Leq">
@@ -95,15 +95,15 @@
                         <color key="backgroundColor" red="0.74236866150000003" green="1" blue="0.95984187789999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
-                        <segue destination="W1U-N2-HYA" kind="relationship" relationship="viewControllers" id="nSB-9H-Cmn"/>
-                        <segue destination="euW-5g-68L" kind="relationship" relationship="viewControllers" id="YRC-vj-In7"/>
+                        <segue destination="BpO-KR-Zs3" kind="relationship" relationship="viewControllers" id="nSB-9H-Cmn"/>
+                        <segue destination="9Sn-rc-6fC" kind="relationship" relationship="viewControllers" id="YRC-vj-In7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7rz-0X-aJD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-283" y="350"/>
         </scene>
-        <!--Item-->
+        <!--Menu View Controller-->
         <scene sceneID="mrE-Lr-83h">
             <objects>
                 <viewController id="W1U-N2-HYA" customClass="MenuViewController" customModule="Cafe_Menu" customModuleProvider="target" sceneMemberID="viewController">
@@ -112,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MD-Rj-IUs" userLabel="Section Picker Container View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="sCO-5a-EBh"/>
                                 </constraints>
@@ -121,7 +121,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Stb-BZ-cDu" userLabel="Menu List Container View">
-                                <rect key="frame" x="0.0" y="202" width="414" height="611"/>
+                                <rect key="frame" x="0.0" y="246" width="414" height="567"/>
                                 <connections>
                                     <segue destination="Z1f-Xw-0yC" kind="embed" identifier="ToMenuList" id="Vs2-OA-Qdp"/>
                                 </connections>
@@ -139,12 +139,11 @@
                             <constraint firstItem="4MD-Rj-IUs" firstAttribute="top" secondItem="ys6-2V-71A" secondAttribute="top" id="wkp-E5-ojO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="menucard.fill" catalog="system" id="cop-hr-kJy"/>
                     <navigationItem key="navigationItem" id="CRb-7O-KEo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubc-bD-tDk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605.79710144927537" y="41.517857142857139"/>
+            <point key="canvasLocation" x="1515.9420289855075" y="41.517857142857139"/>
         </scene>
         <!--Sections View Controller-->
         <scene sceneID="DEc-0R-Z7S">
@@ -177,14 +176,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSO-0m-BXe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473.913043478261" y="-174.10714285714286"/>
+            <point key="canvasLocation" x="2384.057971014493" y="-174.10714285714286"/>
         </scene>
         <!--Menu List Table View Controller-->
         <scene sceneID="UKV-g8-O1i">
             <objects>
                 <viewController id="Z1f-Xw-0yC" customClass="MenuListTableViewController" customModule="Cafe_Menu" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" id="Sm1-tJ-cJa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="611"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="567"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuItemCell" rowHeight="100" id="feo-l0-nb9" customClass="MenuItemTableViewCell" customModule="Cafe_Menu" customModuleProvider="target">
@@ -252,7 +251,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDk-PZ-1pm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473.913043478261" y="150.66964285714286"/>
+            <point key="canvasLocation" x="2384.057971014493" y="150.33482142857142"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="kg7-GH-YdT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BpO-KR-Zs3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="menucard.fill" catalog="system" id="cop-hr-kJy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UI4-fV-oGD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="W1U-N2-HYA" kind="relationship" relationship="rootViewController" id="xG9-Si-53Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCP-Ee-uhk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605.79710144927537" y="41.517857142857139"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="7pb-HY-EJ8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Sn-rc-6fC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="cup.and.saucer.fill" catalog="system" id="lhr-G2-wd6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4rR-Aj-Q7N">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="euW-5g-68L" kind="relationship" relationship="rootViewController" id="X7a-ch-X0G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iFk-MA-RYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605.79710144927537" y="721.875"/>
         </scene>
     </scenes>
     <resources>

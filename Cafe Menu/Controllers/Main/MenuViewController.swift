@@ -20,8 +20,8 @@ class MenuViewController: UIViewController {
         
         tabBarController?.delegate = self
         detailVC.detailToMenu = self
-//        title = "Cafe Menu"
-//        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Cafe Menu"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
     }
     
@@ -34,7 +34,6 @@ class MenuViewController: UIViewController {
         
         if segue.identifier == "ToMenuList" {
             menuListTableViewController = segue.destination as? MenuListTableViewController
-            menuListTableViewController!.pickerSelection = (menuSectionStr: "All", menuSectionVal: 0)
             menuListTableViewController!.detailVC = detailVC
         }
     }
@@ -44,8 +43,7 @@ class MenuViewController: UIViewController {
 extension MenuViewController: SectionsToMenuVC {
         
     func passSelectedPickerRow(pickerRow: (menuSectionStr: String, menuSectionVal: Int)) {
-        menuListTableViewController!.pickerSelection = pickerRow
-        menuListTableViewController!.tableView.reloadData()
+        menuListTableViewController!.passSelectedPickerRow(pickerRow: pickerRow)
     }
     
 }

@@ -22,6 +22,9 @@ class OrderListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Order List"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
