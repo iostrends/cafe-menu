@@ -23,6 +23,8 @@ class DetailViewController: CustomModalViewController {
     private let menuItemImageView = UIImageView()
     private let menuItemDescription = UITextView()
     
+    private let checkMarkImgView = UIImageView()
+    
     private let addToOrderButton = UIButton()
     private let closeImageButton = UIImageView()
 
@@ -151,6 +153,23 @@ class DetailViewController: CustomModalViewController {
         ])
         
         
+        // Check Mark Image
+        checkMarkImgView.image = UIImage(named: "check-mark")
+        checkMarkImgView.backgroundColor = UIColor(red: 196/255, green: 255/255, blue: 241/255, alpha: 1)
+        checkMarkImgView.layer.cornerRadius = 20
+        containerView.addSubview(checkMarkImgView)
+        
+        checkMarkImgView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            checkMarkImgView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0),
+            checkMarkImgView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 150),
+            
+            checkMarkImgView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 100),
+            checkMarkImgView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -100)
+        ])
+        
+        
         // Close Modal Button
         closeImageButton.image = UIImage(named: "custom.xmark.circle.fill")
         closeImageButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closeDetailModal)))
@@ -171,15 +190,45 @@ class DetailViewController: CustomModalViewController {
     
     @objc
     func addMenuItemToOrder() {
-        print("addToOrder")
-        print(theMenuItem!.menuItemStr)
         detailToMenu!.addToOrderList(item: theMenuItem!)
+        animateTheCheckMarkView()
     }
-    
     
     @objc
     func closeDetailModal() {
         animateDismissView()
+    }
+    
+    func animateTheCheckMarkView() {
+        
+        view.isUserInteractionEnabled = false
+        
+        UIView.animate(withDuration: 1,
+                       animations: {
+                            var theFrame = self.checkMarkImgView.frame
+                            theFrame.origin.y -= theFrame.height + 125
+                            self.checkMarkImgView.frame = theFrame
+                        },
+                       completion: { _ in
+                            sleep(1)
+                            self.dissmissAnimateTheCheckMarkView()
+                            self.animateDismissView()
+                            self.view.isUserInteractionEnabled = true
+                        })
+    }
+    
+    func dissmissAnimateTheCheckMarkView() {
+        
+        UIView.animate(withDuration: 1,
+                       delay: 1,
+                       options: [],
+                       animations: {
+                            var theFrame = self.checkMarkImgView.frame
+                            theFrame.origin.y += theFrame.height + 125
+                            self.checkMarkImgView.frame = theFrame
+        }, completion: { _ in
+            
+        })
     }
 
 }

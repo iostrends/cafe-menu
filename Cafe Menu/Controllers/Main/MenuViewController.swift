@@ -53,15 +53,22 @@ extension MenuViewController: DetailToMenuVC, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         print("didSelect TabBar")
         
-        if viewController.isKind(of: OrderListTableViewController.self) {
-            print("switching to orderListTblVC")
+        if viewController.isKind(of: UINavigationController.self) {
             
-            guard let destVC = viewController as? OrderListTableViewController else {
-                fatalError("Unable to switch to OrderListTableViewController")
+            guard let destNavController = viewController as? UINavigationController else {
+                fatalError("Unable to find UINavigationController")
             }
             
-            destVC.orderList = orderList
-            destVC.tableView.reloadData()
+            if destNavController.topViewController!.isKind(of: OrderListTableViewController.self) {
+                print("switching to orderListTblVC")
+                guard let destVC = destNavController.topViewController as? OrderListTableViewController else {
+                    fatalError("Unable to switch to OrderListTableViewController")
+                }
+
+                destVC.orderList = orderList
+                destVC.tableView.reloadData()
+            }
+
         }
     }
     

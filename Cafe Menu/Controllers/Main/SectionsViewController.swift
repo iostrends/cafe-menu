@@ -35,7 +35,7 @@ class SectionsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
 
     
-    // MARK: UIPickerViewDelegate methods
+    // MARK: - UIPickerViewDelegate methods
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         sectionsToMenu!.passSelectedPickerRow(pickerRow:(sections[row], row))
