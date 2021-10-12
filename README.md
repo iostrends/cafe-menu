@@ -10,13 +10,17 @@ Utilizing Storyboards endeavoring to follow the MVC software architecture patter
 
 
 ## Cafe Menu
+<img src="https://github.com/CompSci01x/cafe-menu/blob/main/CafeMenu-DemoGifs/CafeMenu.gif" width="340" height="725" />
 
 <p>&nbsp;</p>
 
+
 ## Add To Order
+<img src="https://github.com/CompSci01x/cafe-menu/blob/main/CafeMenu-DemoGifs/AddingToOrder.gif" width="340" height="725" />
 
 <p>&nbsp;</p>
 
 ## Delete From Order
+<img src="https://github.com/CompSci01x/cafe-menu/blob/main/CafeMenu-DemoGifs/RemoveFromOrder.gif" width="340" height="725" />
 
 <p>&nbsp;</p>
