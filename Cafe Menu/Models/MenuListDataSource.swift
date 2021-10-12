@@ -11,45 +11,45 @@ class MenuListDataSource: NSObject {
 
     private let teaCollection = [
         MenuItem(itemStr: "Earl Grey Tea", priceStr: "$ 2.50", itemImg: UIImage(named: "cup-earl-grey-tea")!, desciptionStr: "A strong black tea base with the added essence of bergamot, a citrus fruit with subtle lemon and floral lavender notes, creates this aromatically awesome tea flavor."),
-        MenuItem(itemStr: "Green Tea", priceStr: "$ 3.75", itemImg: UIImage(named: "green-tea")!, desciptionStr: ""),
-        MenuItem(itemStr: "Hibiscus Tea", priceStr: "$ 4.99", itemImg: UIImage(named: "hibiscus-tea")!, desciptionStr: ""),
-        MenuItem(itemStr: "Orange Blossom Tea", priceStr: "$ 5.25", itemImg: UIImage(named: "orange-blossom-tea")!, desciptionStr: ""),
-        MenuItem(itemStr: "Peppermint Tea", priceStr: "$ 3.99", itemImg: UIImage(named: "peppermint-tea")!, desciptionStr: "")
+        MenuItem(itemStr: "Green Tea", priceStr: "$ 3.75", itemImg: UIImage(named: "green-tea")!, desciptionStr: "Green tea blended with mint, lemongrass and lemon verbena."),
+        MenuItem(itemStr: "Hibiscus Tea", priceStr: "$ 3.99", itemImg: UIImage(named: "hibiscus-tea")!, desciptionStr: "A refreshing iced tea made with Nigerian hibiscus, apple pieces, sweet blackberry leaves, rosehips, natural plum flavor, carob and ginger."),
+        MenuItem(itemStr: "Orange Blossom Tea", priceStr: "$ 4.25", itemImg: UIImage(named: "orange-blossom-tea")!, desciptionStr: "A luscious and rich black tea, teeming with notes of orange, vanilla, bergamot, and jasmine blossoms."),
+        MenuItem(itemStr: "Peppermint Tea", priceStr: "$ 3.99", itemImg: UIImage(named: "peppermint-tea")!, desciptionStr: "A blend of mint and a pinch of lemon verbena creates a refreshing flavor.")
     ]
     
     private let coffeeCollection = [
-        MenuItem(itemStr: "Americano", priceStr: "$ 2.50", itemImg: UIImage(named: "americano-coffee")!, desciptionStr: ""),
-        MenuItem(itemStr: "Black Coffee", priceStr: "$ 1.99", itemImg: UIImage(named: "black-coffee")!, desciptionStr: ""),
-        MenuItem(itemStr: "Caffè Peppermint Mocha", priceStr: "$ 7.50", itemImg: UIImage(named: "peppermint-mocha")!, desciptionStr: ""),
-        MenuItem(itemStr: "Cappuccino", priceStr: "$ 4.75", itemImg: UIImage(named: "cappuccino")!, desciptionStr: ""),
-        MenuItem(itemStr: "Caramel Macchiato", priceStr: "$ 8.25", itemImg: UIImage(named: "caramel-macchiato")!, desciptionStr: ""),
-        MenuItem(itemStr: "Espresso", priceStr: "$ 5.99", itemImg: UIImage(named: "espresso")!, desciptionStr: ""),
-        MenuItem(itemStr: "Latte", priceStr: "$ 6.25", itemImg: UIImage(named: "latte")!, desciptionStr: "")
+        MenuItem(itemStr: "Americano", priceStr: "$ 2.50", itemImg: UIImage(named: "americano-coffee")!, desciptionStr: "Espresso shots topped with hot water create a light layer of crema."),
+        MenuItem(itemStr: "Black Coffee", priceStr: "$ 1.99", itemImg: UIImage(named: "black-coffee")!, desciptionStr: "Full-bodied dark roast coffee with bold, robust flavors."),
+        MenuItem(itemStr: "Caffè Peppermint Mocha", priceStr: "$ 7.50", itemImg: UIImage(named: "peppermint-mocha")!, desciptionStr: "Signature Espresso Roast combines with steamed milk, sweet mocha sauce, peppermint-flavored syrup, topped with whipped cream and dark chocolate curls."),
+        MenuItem(itemStr: "Cappuccino", priceStr: "$ 4.75", itemImg: UIImage(named: "cappuccino")!, desciptionStr: "Dark, rich espresso lies in wait under a smoothed and stretched layer of thick milk foam."),
+        MenuItem(itemStr: "Caramel Macchiato", priceStr: "$ 8.25", itemImg: UIImage(named: "caramel-macchiato")!, desciptionStr: "Freshly steamed milk with vanilla-flavored syrup marked with espresso and topped with a caramel drizzle."),
+        MenuItem(itemStr: "Espresso", priceStr: "$ 5.99", itemImg: UIImage(named: "espresso")!, desciptionStr: "Smooth signature Espresso Roast with rich flavor and caramelly sweetness."),
+        MenuItem(itemStr: "Caffè Latte", priceStr: "$ 6.25", itemImg: UIImage(named: "latte")!, desciptionStr: "Dark, rich espresso balanced with steamed milk and a light layer of foam.")
     ]
     
     private let pastryAndDessertCollection = [
-        MenuItem(itemStr: "Cheesecake", priceStr: "$ 7.75", itemImg: UIImage(named: "cheesecake")!, desciptionStr: ""),
-        MenuItem(itemStr: "Creme Caramel", priceStr: "$ 9.50", itemImg: UIImage(named: "creme-caramel")!, desciptionStr: ""),
-        MenuItem(itemStr: "Lemon Meringue Pie", priceStr: "$ 8.25", itemImg: UIImage(named: "lemon-meringue")!, desciptionStr: ""),
-        MenuItem(itemStr: "Tiramisu", priceStr: "$ 6.25", itemImg: UIImage(named: "tiramisu")!, desciptionStr: "")
+        MenuItem(itemStr: "Cheesecake", priceStr: "$ 7.75", itemImg: UIImage(named: "cheesecake")!, desciptionStr: "A rich and creamy New York-style cheesecake baked inside a honey-graham crust."),
+        MenuItem(itemStr: "Creme Caramel", priceStr: "$ 9.50", itemImg: UIImage(named: "creme-caramel")!, desciptionStr: "Silky smooth custard, boasting the flavor of pure vanilla and topped with a glossy caramel layer."),
+        MenuItem(itemStr: "Lemon Meringue Pie", priceStr: "$ 8.25", itemImg: UIImage(named: "lemon-meringue")!, desciptionStr: "Tart and sweet lemon filling, topped with delicate meringue."),
+        MenuItem(itemStr: "Tiramisu", priceStr: "$ 6.25", itemImg: UIImage(named: "tiramisu")!, desciptionStr: "Italian Custard Made with Mascarpone, Whipped Cream, Lady Fingers, Marsala and Coffee Liqueur. Topped with Whipped Cream and Ground Chocolate.")
     ]
     
     private let sandwichCollection = [
-        MenuItem(itemStr: "Chicken Salad Croissant", priceStr: "$ 7.25", itemImg: UIImage(named: "chicken-salad-croissant-sandwich")!, desciptionStr: ""),
-        MenuItem(itemStr: "Ham Sandwich", priceStr: "$ 4.50", itemImg: UIImage(named: "ham-sandwich")!, desciptionStr: ""),
-        MenuItem(itemStr: "Turkey BLT", priceStr: "$ 5.99", itemImg: UIImage(named: "turkey-blt")!, desciptionStr: "")
+        MenuItem(itemStr: "Chicken Salad Croissant", priceStr: "$ 7.25", itemImg: UIImage(named: "chicken-salad-croissant-sandwich")!, desciptionStr: "Light and creamy, tangy, and crunchy, chicken salad sandwiched between two halves of a soft buttery croissant!"),
+        MenuItem(itemStr: "Ham Sandwich", priceStr: "$ 4.50", itemImg: UIImage(named: "ham-sandwich")!, desciptionStr: "Honey Baked Ham topped with Swiss cheese, lettuce, tomato, mayonnaise, and Hickory Honey Mustard."),
+        MenuItem(itemStr: "Turkey BLT", priceStr: "$ 5.99", itemImg: UIImage(named: "turkey-blt")!, desciptionStr: "Choice of Smoked or Roasted Honey Baked Turkey Breast topped with Swiss cheese, lettuce, tomato, mayonnaise, and Hickory Honey Mustard.")
     ]
     
     private let beverageCollection = [
-        MenuItem(itemStr: "Iced Tea", priceStr: "$ 4.50", itemImg: UIImage(named: "iced-tea")!, desciptionStr: ""),
-        MenuItem(itemStr: "Lemonade", priceStr: "$ 2.99", itemImg: UIImage(named: "lemonade")!, desciptionStr: ""),
-        MenuItem(itemStr: "Orange Juice", priceStr: "$ 3.25", itemImg: UIImage(named: "orange-juice")!, desciptionStr: "")
+        MenuItem(itemStr: "Iced Black Tea", priceStr: "$ 4.50", itemImg: UIImage(named: "iced-tea")!, desciptionStr: "Premium black tea is shaken with ice."),
+        MenuItem(itemStr: "Lemonade", priceStr: "$ 2.99", itemImg: UIImage(named: "lemonade")!, desciptionStr: "Sweet and simple classic lemonade."),
+        MenuItem(itemStr: "Orange Juice", priceStr: "$ 3.25", itemImg: UIImage(named: "orange-juice")!, desciptionStr: "Cold-pressed with oranges picked and squeezed at their peak of sweetness.")
     ]
     
     private let cafeSidesCollection = [
-        MenuItem(itemStr: "French Fries", priceStr: "$ 3.99", itemImg: UIImage(named: "french-fries")!, desciptionStr: ""),
-        MenuItem(itemStr: "Fresh Fruit Salad", priceStr: "$ 5.25", itemImg: UIImage(named: "fruit-salad")!, desciptionStr: ""),
-        MenuItem(itemStr: "Tortilla Chips with Fresh Salsa", priceStr: "$ 4.50", itemImg: UIImage(named: "tortilla-chips-with-salsa")!, desciptionStr: "")
+        MenuItem(itemStr: "French Fries", priceStr: "$ 3.99", itemImg: UIImage(named: "french-fries")!, desciptionStr: "Made with fresh Aussie potatoes, cooked with their skins on cottonseed sunflower oil blend and ready to be enjoyed with any of our dipping sauces."),
+        MenuItem(itemStr: "Fresh Fruit Salad", priceStr: "$ 5.25", itemImg: UIImage(named: "fruit-salad")!, desciptionStr: "An assortment of ripe seasonal fruit with a splash of freshly squeezed orange juice."),
+        MenuItem(itemStr: "Tortilla Chips with Fresh Salsa", priceStr: "$ 4.50", itemImg: UIImage(named: "tortilla-chips-with-salsa")!, desciptionStr: "Tortilla chips prepared fresh daily with a light sprinkling of all-natural sea salt.")
     ]
     
     let allMenuItems: [[MenuItem]]
