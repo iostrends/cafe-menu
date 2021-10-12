@@ -13,7 +13,7 @@ class MenuViewController: UIViewController {
     var menuListTableViewController: MenuListTableViewController?
     var detailVC = DetailViewController()
     
-    var orderList: [MenuItem] = []
+    var addToOrderList: [MenuItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,6 @@ extension MenuViewController: SectionsToMenuVC {
 extension MenuViewController: DetailToMenuVC, UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print("didSelect TabBar")
         
         if viewController.isKind(of: UINavigationController.self) {
             
@@ -60,20 +59,22 @@ extension MenuViewController: DetailToMenuVC, UITabBarControllerDelegate {
             }
             
             if destNavController.topViewController!.isKind(of: OrderListTableViewController.self) {
-                print("switching to orderListTblVC")
+
                 guard let destVC = destNavController.topViewController as? OrderListTableViewController else {
                     fatalError("Unable to switch to OrderListTableViewController")
                 }
 
-                destVC.orderList = orderList
+                destVC.orderList.append(contentsOf: addToOrderList)
                 destVC.tableView.reloadData()
+                
+                addToOrderList.removeAll()
             }
 
         }
     }
     
     func addToOrderList(item: MenuItem) {
-        orderList.append(item)
+        addToOrderList.append(item)
     }
     
 }
