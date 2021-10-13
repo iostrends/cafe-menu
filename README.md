@@ -1,7 +1,7 @@
 # "Cafe Menu" iOS App
 
 An iOS app allowing users to browse a cafe menu and add menu items to their order. <br />
-*UIKit, Storyboard and endeavoring to follow the MVC software architecture pattern.*
+*Swift, UIKit, Cocoa Touch, Storyboard and endeavoring to follow the MVC software architecture pattern.*
 
 **Feature Demos:**
 - [Cafe Menu](#cafe-menu)
